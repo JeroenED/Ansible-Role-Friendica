@@ -1,8 +1,8 @@
 ---
 - name: Check if friendica is already downloaded
-    stat:
-      path: "{{ friendica_branch }}/index.php"
-    register: friendica_downloaded
+  stat:
+    path: "{{ friendica_path }}/index.php"
+  register: friendica_downloaded
 
 - name: Clone friendica from git
   command: "git clone https://github.com/friendica/friendica.git '{{ friendica_path }}'"
