@@ -22,9 +22,6 @@ The branch of friendica that is being installed. Possible options are `master` a
     friendica_group: www-data
 The user and group the files of friendica will belong to. When your server does not run with default user and group
 
-    friendica_vhost: forum.friendi.ca
-Create a apache vhost for friendica
-
     friendica_pull_cron: daily
 Create a additional cronjob to pull latest changes of your branch.
 
@@ -111,6 +108,25 @@ Enable the automatic database cleanup process
     friendica_config_system_dbcleanexpiredays: 7
 Days after which remote items will be deleted. Own items, and marked or filed items are kept.
 
+Automatic Apache Vhost creation
+===============================
+
+A virtualhost for Apache can be created by the role. The template is based on the vhost.conf template from Geerlingguy's apache role
+
+    friendica_vhost_servername: friendica.example.com
+The servername for the Virtual Host. If this is set the vhost will be created
+
+    friendica_vhost_serveralias: social.example.com
+The alternative servernames for the Virtualhost. Commonly not recommended to have this :)
+
+    friendica_vhost_extraparams:
+Some extra parameters to set in the Vhost.
+
+    friendica_certificate:
+    friendica_certificatekey:
+    friendica_certificatechain:
+When you have HTTPS enabled on your website, setting these parameters will create a ssl-enabled vhost and will create redirection from http to https.
+
 Dependencies
 ------------
 
@@ -125,6 +141,11 @@ Example Playbook
 
     - hosts: servers
       roles:
+         - { role: geerlingguy.apache }
+         - { role: geerlingguy.php }
+         - { role: geerlingguy.mysql }
+         - { role: geerlingguy.php-mysql }
+         - { role: geerlingguy.git }
          - { role: jeroened.friendica }
 
 License
@@ -138,7 +159,3 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
