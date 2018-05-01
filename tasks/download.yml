@@ -1,9 +1,17 @@
 ---
+- name: Check if friendica is already downloaded
+    stat:
+      path: "{{ friendica_branch }}/index.php"
+    register: friendica_downloaded
+
 - name: Clone friendica from git
-  command: >
-    git clone https://github.com/friendica/friendica.git '{{ friendica_path }}'
-    cd '{{ friendica_path }}'
-    git checkout {{ friendica_branch }}
+  command: "git clone https://github.com/friendica/friendica.git '{{ friendica_path }}'"
+  when: friendica_downloaded.stat.exists == False
+
+- name: Checkout the chosen branch
+  command: "git checkout {{ friendica_branch }}"
+  args:
+    chdir: "{{ friendica_path }}"
 
 - name: Change ownership of all files and folders
   file:
