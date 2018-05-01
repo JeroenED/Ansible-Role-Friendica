@@ -9,7 +9,7 @@
 
 - name: Create apache VirtualHost configuration
   template:
-    src: ".htconfig.php.j2"
+    src: "vhost.conf.j2"
     dest: "{{ apache_conf_path }}/sites-available/friendica.conf"
     owner: "{{ friendica_user }}"
     group: "{{ friendica_group }}"
