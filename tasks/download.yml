@@ -7,7 +7,7 @@
 
 - name: Change ownership of all files and folders
   file:
-    path: {{ friendica_path }}
-    owner: {{ friendica_user }}
-    group: {{ friendica_group }}
+    path: "{{ friendica_path }}"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
     recurse: yes

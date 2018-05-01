@@ -16,6 +16,6 @@
 - name: Create git pull cronjob
   cron:
     name: "update Friendica"
-    special_time: {{ friendica_pull_cron }}
+    special_time: "{{ friendica_pull_cron }}"
     value: "cd {{ friendica_path }}; git pull"
   when: friendica_pull_cron is defined
