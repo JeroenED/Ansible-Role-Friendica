@@ -26,6 +26,9 @@
 {% endif %}
   </Directory>
 {% endif %}
+{% if friendica_vhost_extraparams is defined %}
+  {{ friendica_vhost_extraparams  }}
+{% endif %}
 </VirtualHost>
 
 {# Set up Friendica SSL-VirtualHost #}
@@ -66,6 +69,9 @@
     Require all granted
 {% endif %}
   </Directory>
+{% endif %}
+{% if friendica_vhost_extraparams is defined %}
+  {{ friendica_vhost_extraparams  }}
 {% endif %}
 </VirtualHost>
 
