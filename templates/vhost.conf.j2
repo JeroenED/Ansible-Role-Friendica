@@ -1,0 +1,72 @@
+{# Set up Friendica VirtualHost #}
+<VirtualHost {{ apache_listen_ip }}:{{ apache_listen_port }}>
+  ServerName {{ friendica_vhost_servername }}
+{% if friendica_vhost_serveralias is defined %}
+  ServerAlias {{ friendica_vhost_serveralias }}
+{% endif %}
+{% if friendica_path is defined %}
+  DocumentRoot "{{ friendica_path }}"
+{% endif %}
+
+{% if friendica_certificate is defined %}
+Redirect permanent / https://{{ friendica_vhost_servername }}/
+{% endif %}
+{% if friendica_config_adminemail is defined %}
+  ServerAdmin {{ friendica_config_adminemail }}
+{% endif %}
+{% if friendica_path is defined %}
+  <Directory "{{ friendica_path }}">
+    AllowOverride All
+    Options -Indexes +FollowSymLinks
+{% if apache_vhosts_version == "2.2" %}
+    Order allow,deny
+    Allow from all
+{% else %}
+    Require all granted
+{% endif %}
+  </Directory>
+{% endif %}
+</VirtualHost>
+
+{# Set up Friendica SSL-VirtualHost #}
+{% if friendica_certificate is defined %}
+<VirtualHost {{ apache_listen_ip }}:{{ apache_listen_port_ssl }}>
+  ServerName {{ friendica_vhost_servername }}
+{% if friendica_vhost_serveralias is defined %}
+  ServerAlias {{ friendica_vhost_serveralias }}
+{% endif %}
+{% if friendica_path is defined %}
+  DocumentRoot "{{ friendica_path }}"
+{% endif %}
+
+  SSLEngine on
+  SSLCipherSuite {{ apache_ssl_cipher_suite }}
+  SSLProtocol {{ apache_ssl_protocol }}
+  SSLHonorCipherOrder On
+{% if apache_vhosts_version == "2.4" %}
+  SSLCompression off
+{% endif %}
+  SSLCertificateFile {{ friendica_certificate }}
+  SSLCertificateKeyFile {{ friendica_certificatekey }}
+{% if vhost.certificate_chain_file is defined %}
+  SSLCertificateChainFile {{ friendica_certificatechain }}
+{% endif %}
+
+{% if friendica_config_adminemail is defined %}
+  ServerAdmin {{ friendica_config_adminemail }}
+{% endif %}}
+{% if {{ friendica_path }} is defined %}
+  <Directory "{{ {{ friendica_path }} }}">
+    AllowOverride All
+    Options -Indexes +FollowSymLinks
+{% if apache_vhosts_version == "2.2" %}
+    Order allow,deny
+    Allow from all
+{% else %}
+    Require all granted
+{% endif %}
+  </Directory>
+{% endif %}
+</VirtualHost>
+
+{% endif %}

@@ -5,8 +5,6 @@ friendica_path: /var/www/friendica
 friendica_branch: master
 friendica_user: www-data
 friendica_group: www-data
-friendica_vhost: friendica.example.com
-friendica_pull_cron: off
 friendica_database_host: localhost
 friendica_database_port: 3306
 friendica_database_user: root
@@ -35,6 +33,6 @@ friendica_config_system_relayservertags: [ 'tag1', 'tag2', 'tag3' ]
 friendica_config_system_relayusertags: true
 friendica_config_system_invitationonly: false
 friendica_config_system_dbclean: true
-friendica_config_system_dbcleanexpiredays: true
+friendica_config_system_dbcleanexpiredays: 7
 
 

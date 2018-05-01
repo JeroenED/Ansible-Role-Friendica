@@ -1,0 +1,13 @@
+---
+- name: Clone friendica from git
+  command: >
+    git clone https://github.com/friendica/friendica.git '{{ friendica_path }}'
+    cd '{{ friendica_path }}'
+    git checkout {{ friendica_branch }}
+
+- name: Change ownership of all files and folders
+  file:
+    path: {{ friendica_path }}
+    owner: {{ friendica_user }}
+    group: {{ friendica_group }}
+    recurse: yes

@@ -1,0 +1,26 @@
+---
+- name: Add friendica configuration
+  template:
+    src: ".htconfig.php.j2"
+    dest: "{{ friendica_path }}/.htconfig.php"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
+    mode: 0644
+
+- name: Create apache VirtualHost configuration
+  template:
+    src: ".htconfig.php.j2"
+    dest: "{{ apache_conf_path }}/sites-available/friendica.conf"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
+    mode: 0644
+  notify: restart apache
+  when: friendica_vhost_servername is defined
+
+- name: Enable friendica VirtualHost configuration
+  file:
+    src: "{{ apache_conf_path }}/sites-available/friendica.conf"
+    dest: "{{ apache_conf_path }}/sites-enabled/friendica.conf"
+    state: link
+  notify: restart apache
+  when: friendica_vhost_servername is defined
