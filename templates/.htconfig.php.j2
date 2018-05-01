@@ -1,0 +1,133 @@
+<?php
+
+/* ********************************************************************
+ *  The following configuration has to be within the .htconfig.php
+ *  file and will not be overruled by decisions made in the admin panel.
+ *
+ *  See below for variables that may be overruled by the admin panel.
+ * ********************************************************************/
+
+// Set the following for your MySQL installation
+//
+// If you need to specify a port for reacing the database, you can do so by
+// adding ":portnumber" after "your.mysqlhost.com" in the $db_host config.
+
+$db_host = '{{ friendica_database_host }}';
+$db_user = '{{ friendica_database_user }}';
+$db_pass = '{{ friendica_database_pass }}';
+$db_data = '{{ friendica_database_data }}';
+
+// Set the database connection charset to full Unicode (utf8mb4).
+// Changing this value will likely corrupt the special characters.
+// You have been warned.
+$a->config['system']['db_charset'] = "utf8mb4";
+
+// email adress for the system admin
+
+$a->config['admin_email'] = '{{ friendica_config_adminemail }}';
+
+// Location of PHP command line processor
+
+$a->config['php_path'] = '/usr/bin/php';
+
+// If you are using a subdirectory of your domain you will need to put the
+// relative path (from the root of your domain) here.
+// For instance if your URL is 'http://example.com/directory/subdirectory',
+// set path to 'directory/subdirectory'.
+
+$a->path = '';
+
+// Allowed protocols in link URLs; HTTP protocols always are accepted
+$allowed_link_protocols = array();
+(% for prot in {{ friendica_config_system_allowedlinkprotocols }} %)
+$allowed_link_protocols[] = '{{ prot }}';
+(% endfor %)
+
+$a->config['system']['allowed_link_protocols'] = $allowed_link_protocols[];
+
+/* *********************************************************************
+ *  The configuration below will be overruled by the admin panel.
+ *  Changes made below will only have an effect if the database does
+ *  not contain any configuration for the friendica system.
+ * *********************************************************************/
+
+// Choose a legal default timezone. If you are unsure, use "America/Los_Angeles".
+// It can be changed later and only applies to timestamps for anonymous viewers.
+
+$default_timezone = '{{ friendica_timezone }}';
+
+// Default system language
+
+$a->config['system']['language'] = '{{ friendica_config_system_language }}';
+
+// What is your site name?
+
+$a->config['sitename'] = "{{ friendica_config_sitename }}";
+
+// Your choices are REGISTER_OPEN, REGISTER_APPROVE, or REGISTER_CLOSED.
+// Be certain to create your own personal account before setting
+// REGISTER_CLOSED. 'register_text' (if set) will be displayed prominently on
+// the registration page. REGISTER_APPROVE requires you set 'admin_email'
+// to the email address of an already registered person who can authorise
+// and/or approve/deny the request.
+
+$a->config['register_policy'] = {{ friendica_config_registerpolicy }};
+$a->config['register_text'] = '{{ friendica_config_registertext }}';
+
+// Maximum size of an imported message, 0 is unlimited
+
+$a->config['max_import_size'] = {{ friendica_config_maximportsize }};
+
+// maximum size of uploaded photos
+
+$a->config['system']['maximagesize'] = {{ friendica_config_system_maximagesize }};
+
+// Server-to-server private message encryption (RINO) is allowed by default.
+// set to 0 to disable, 1 to enable
+
+$a->config['system']['rino_encrypt'] = {{ friendica_config_system_rino_encrypt }};
+
+// default system theme
+
+$a->config['system']['theme'] = '{{ friendica_config_system_theme }}';
+$allowed_themes = array();
+(% for theme in {{ friendica_config_system_allowedlinkprotocols }} %)
+$allowed_themes[] = '{{ theme }}';
+(% endfor %)
+$a->config['system']['allowed_themes'] = implode(',', $allowed_themes);
+
+// By default allow pseudonyms
+
+$a->config['system']['no_regfullname'] = {{ friendica_config_system_noregfullname }};
+
+// relay config
+$a->config['system']['relay_server'] = '{{ friendica_config_system_relayserver }}';
+$a->config['system']['relay_subscribe'] = {{ friendica_config_system_relaysubscribe }};
+$a->config['system']['relay_scope'] = '{{ friendica_config_system_relayscope }}';
+$server_tags = array();
+(% for tag in {{ friendica_config_system_relayservertags }} %)
+$server_tags[] = '{{ tag }}';
+(% endfor %)
+$a->config['system']['relay_server_tags'] = implode(',', $server_tags);
+$a->config['system']['relay_user_tags'] = {{ friendica_config_system_relayusertags }};
+
+// invitation only
+$a->config['system']['invitation_only'] = {{ friendica_config_system_invitationonly }};
+
+// clean database
+$a->config['system']['dbclean'] = {{ friendica_config_system_dbclean }};
+$a->config['system']['dbclean-expire-days'] = {{ friendica_config_system_dbcleanexpiredays }};
+
+//Deny public access to the local directory
+$a->config['system']['block_local_dir'] = {{ friendica_config_system_blocklocaldir }};
+
+// Location of the global directory
+$a->config['system']['directory'] = '{{ friendica_config_system_directory }}';
+
+// Authentication cookie lifetime, in days
+$a->config['system']['auth_cookie_lifetime'] = {{ friendica_config_system_authcookielifetime }};
+
+//error_reporting(E_ERROR | E_WARNING | E_PARSE);
+//ini_set('error_log','php.err');
+//ini_set('log_errors','1');
+//ini_set('display_errors', '1');

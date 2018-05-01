@@ -66,10 +66,10 @@ maximum size of uploaded photos
 Server-to-server private message encryption (RINO) is allowed by default.
 set to 0 to disable, 1 to enable
 
-    friendica_config_system_allowed_themes: [ 'quattro', 'vier', 'duepuntozero', 'smoothly' ]
+    friendica_config_system_allowed_themes: [ 'quattro', 'vier', 'duepuntozero', 'smoothly', 'frio' ]
 Allowed themes (change this from admin panel after installation)
     
-    friendica_config_system_theme: 'vier'
+    friendica_config_system_theme: 'frio'
 Default system theme
 
     friendica_config_system_noregfullname: true
@@ -81,12 +81,35 @@ Deny public access to the local directory
     friendica_config_system_directory: 'https://dir.friendica.social'
 Location of the global directory
 
-    friendica_config_system_allowed_link_protocols': ['ftp', 'ftps', 'mailto', 'cid', 'gopher']
+    friendica_config_system_allowedlinkprotocols': ['ftp', 'ftps', 'mailto', 'cid', 'gopher']
 Allowed protocols in link URLs; HTTP protocols always are accepted
 
-    friendica_config_system_auth_cookie_lifetime: 7
+    friendica_config_system_authcookielifetime: 7
 Authentication cookie lifetime, in days
 
+    friendica_config_system_relayserver: 'https://dir.friendica.social'
+Experimental Diaspora feature. Address of the relay server where public posts should be send to. For example https://dir.friendica.social
+
+    friendica_config_system_relaysubscribe: true
+Enables the receiving of public posts from the relay. They will be included in the search and on the community page when it is set up to show all public items.
+
+    friendica_config_system_relayscope: all
+Can be "all" or "tags". "all" means that every public post should be received. "tags" means that only posts with selected tags should be received.
+
+    friendica_config_system_relayservertags: [ 'tag1', 'tag2', 'tag3' ]
+Array of tags for the "tags" subscription (see "relay_scope")
+
+    friendica_config_system_relayusertags: true
+If enabled, the tags from the saved searches will used for the "tags" subscription in addition to the "relay_server_tags".
+
+    friendica_config_system_invitationonly: false
+If set true registration is only possible after a current member of the node has send an invitation. Default is false.
+
+    friendica_config_system_dbclean: true
+Enable the automatic database cleanup process
+
+    friendica_config_system_dbcleanexpiredays: 7
+Days after which remote items will be deleted. Own items, and marked or filed items are kept.
 
 Dependencies
 ------------

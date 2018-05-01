@@ -1,2 +1,40 @@
 ---
 # defaults file for friendica
+
+friendica_path: /var/www/friendica
+friendica_branch: master
+friendica_user: www-data
+friendica_group: www-data
+friendica_vhost: friendica.example.com
+friendica_pull_cron: off
+friendica_database_host: localhost
+friendica_database_port: 3306
+friendica_database_user: root
+friendica_database_pass: letmein
+friendica_database_data: friendica
+friendica_timezone: UTC
+friendica_config_system_language: en
+friendica_config_sitename: "Friendica Social Network"
+friendica_config_registerpolicy: REGISTER_OPEN
+friendica_config_registertext: ''
+friendica_config_adminemail: root@localhost
+friendica_config_maximportsize: 200000
+friendica_config_system_maximagesize: 800000
+friendica_config_system_rino_encrypt: 1
+friendica_config_system_allowed_themes: [ 'quattro', 'vier', 'duepuntozero', 'smoothly', 'frio' ]
+friendica_config_system_theme: 'frio'
+friendica_config_system_noregfullname: true
+friendica_config_system_blocklocaldir: false
+friendica_config_system_directory: 'https://dir.friendica.social'
+friendica_config_system_allowedlinkprotocols: ['ftp', 'ftps', 'mailto', 'cid', 'gopher']
+friendica_config_system_authcookielifetime: 7
+friendica_config_system_relayserver: 'https://dir.friendica.social'
+friendica_config_system_relaysubscribe: true
+friendica_config_system_relayscope: all
+friendica_config_system_relayservertags: [ 'tag1', 'tag2', 'tag3' ]
+friendica_config_system_relayusertags: true
+friendica_config_system_invitationonly: false
+friendica_config_system_dbclean: true
+friendica_config_system_dbcleanexpiredays: true
+
+
