@@ -39,7 +39,7 @@ $a->path = '';
 
 // Allowed protocols in link URLs; HTTP protocols always are accepted
 $allowed_link_protocols = array();
-(% for prot in {{ friendica_config_system_allowedlinkprotocols }} %)
+(% for prot in friendica_config_system_allowedlinkprotocols %)
 $allowed_link_protocols[] = '{{ prot }}';
 (% endfor %)
 
@@ -91,7 +91,7 @@ $a->config['system']['rino_encrypt'] = {{ friendica_config_system_rino_encrypt }
 
 $a->config['system']['theme'] = '{{ friendica_config_system_theme }}';
 $allowed_themes = array();
-(% for theme in {{ friendica_config_system_allowedlinkprotocols }} %)
+(% for theme in friendica_config_system_allowedlinkprotocols %)
 $allowed_themes[] = '{{ theme }}';
 (% endfor %)
 $a->config['system']['allowed_themes'] = implode(',', $allowed_themes);
@@ -105,7 +105,7 @@ $a->config['system']['relay_server'] = '{{ friendica_config_system_relayserver }
 $a->config['system']['relay_subscribe'] = {{ friendica_config_system_relaysubscribe }};
 $a->config['system']['relay_scope'] = '{{ friendica_config_system_relayscope }}';
 $server_tags = array();
-(% for tag in {{ friendica_config_system_relayservertags }} %)
+(% for tag in friendica_config_system_relayservertags %)
 $server_tags[] = '{{ tag }}';
 (% endfor %)
 $a->config['system']['relay_server_tags'] = implode(',', $server_tags);
