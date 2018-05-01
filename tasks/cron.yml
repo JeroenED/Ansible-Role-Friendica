@@ -2,14 +2,14 @@
 - name: Create worker cronjob (Develop branch)
   cron:
     name: "Friendica worker"
-    minute: "*/"
+    minute: "*/10"
     job: "cd {{ friendica_path }}; /usr/bin/php bin/worker.php"
   when: friendica_branch == 'develop'
 
 - name: Create worker cronjob (Master branch)
   cron:
     name: "Friendica worker"
-    minute: "*/"
+    minute: "*/10"
     job: "cd {{ friendica_path }}; /usr/bin/php scripts/worker.php"
   when: friendica_branch == 'master'
 
