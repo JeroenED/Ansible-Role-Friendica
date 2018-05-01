@@ -19,7 +19,7 @@ friendica_config_adminemail: root@localhost
 friendica_config_maximportsize: 200000
 friendica_config_system_maximagesize: 800000
 friendica_config_system_rino_encrypt: 1
-friendica_config_system_allowed_themes: [ 'quattro', 'vier', 'duepuntozero', 'smoothly', 'frio' ]
+friendica_config_system_allowedthemes: [ 'quattro', 'vier', 'duepuntozero', 'smoothly', 'frio' ]
 friendica_config_system_theme: 'frio'
 friendica_config_system_noregfullname: true
 friendica_config_system_blocklocaldir: false
