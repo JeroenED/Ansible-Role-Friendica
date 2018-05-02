@@ -3,14 +3,14 @@
   cron:
     name: "Friendica worker"
     minute: "*/10"
-    job: "cd {{ friendica_path }}; /usr/bin/php bin/worker.php"
+    job: "(cd {{ friendica_path }}; /usr/bin/php bin/worker.php) > /dev/null"
   when: friendica_branch == 'develop'
 
 - name: Create worker cronjob (Master branch)
   cron:
     name: "Friendica worker"
     minute: "*/10"
-    job: "cd {{ friendica_path }}; /usr/bin/php scripts/worker.php"
+    job: "(cd {{ friendica_path }}; /usr/bin/php scripts/worker.php) > /dev/null"
   when: friendica_branch == 'master'
 
 - name: Create git pull cronjob
