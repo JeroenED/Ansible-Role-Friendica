@@ -2,5 +2,5 @@
 # tasks file for friendica
 
 - include_tasks: "download.yml"
+- include_tasks: "install.yml"
 - include_tasks: "configure.yml"
-- include_tasks: "cron.yml"

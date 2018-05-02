@@ -1,4 +1,16 @@
 ---
+- name: Install friendica dependencies (Develop branch)
+  command: "/usr/bin/php bin/composer.phar install"
+  args:
+    chdir: "{{ friendica_path }}"
+  when: friendica_branch == 'develop'
+
+- name: Install friendica dependencies (Master branch)
+  command: "/usr/bin/php util/composer.phar install"
+  args:
+    chdir: "{{ friendica_path }}"
+  when: friendica_branch == 'master'
+
 - name: Create worker cronjob (Develop branch)
   cron:
     name: "Friendica worker"
