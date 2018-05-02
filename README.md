@@ -119,6 +119,9 @@ The servername for the Virtual Host. If this is set the vhost will be created
     friendica_vhost_serveralias: social.example.com
 The alternative servernames for the Virtualhost. Commonly not recommended to have this :)
 
+    friendica_vhost_usempmitk: no
+Some extra parameters to set in the Vhost.
+
     friendica_vhost_extraparams:
 Some extra parameters to set in the Vhost.
 

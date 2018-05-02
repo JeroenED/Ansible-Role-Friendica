@@ -34,5 +34,4 @@ friendica_config_system_relayusertags: true
 friendica_config_system_invitationonly: false
 friendica_config_system_dbclean: true
 friendica_config_system_dbcleanexpiredays: 7
-
-
+friendica_vhost_usempmitk: no

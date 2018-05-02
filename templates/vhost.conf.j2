@@ -26,6 +26,9 @@
 {% endif %}
   </Directory>
 {% endif %}
+{% if friendica_vhost_usempmitk == "yes" %}
+  AssignUserId {{ friendica_user }} {{ friendica_group }}
+{% endif %}
 {% if friendica_vhost_extraparams is defined %}
   {{ friendica_vhost_extraparams  }}
 {% endif %}
@@ -69,6 +72,9 @@
     Require all granted
 {% endif %}
   </Directory>
+{% endif %}
+{% if friendica_vhost_usempmitk == "yes" %}
+  AssignUserId {{ friendica_user }} {{ friendica_group }}
 {% endif %}
 {% if friendica_vhost_extraparams is defined %}
   {{ friendica_vhost_extraparams  }}
