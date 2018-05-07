@@ -16,6 +16,7 @@
     name: "Friendica worker"
     minute: "*/10"
     job: "(cd {{ friendica_path }}; /usr/bin/php bin/worker.php) > /dev/null"
+    user: "{{ friendica_user }}"
   when: friendica_branch == 'develop'
 
 - name: Create worker cronjob (Master branch)
@@ -23,6 +24,7 @@
     name: "Friendica worker"
     minute: "*/10"
     job: "(cd {{ friendica_path }}; /usr/bin/php scripts/worker.php) > /dev/null"
+    user: "{{ friendica_user }}"
   when: friendica_branch == 'master'
 
 - name: Create git pull cronjob
@@ -30,4 +32,5 @@
     name: "update Friendica"
     special_time: "{{ friendica_pull_cron }}"
     value: "cd {{ friendica_path }}; git pull"
+    user: "{{ friendica_user }}"
   when: friendica_pull_cron is defined
