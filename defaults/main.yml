@@ -32,6 +32,6 @@ friendica_config_system_relayscope: all
 friendica_config_system_relayservertags: [ 'tag1', 'tag2', 'tag3' ]
 friendica_config_system_relayusertags: true
 friendica_config_system_invitationonly: false
-friendica_config_system_dbclean: true
-friendica_config_system_dbcleanexpiredays: 7
+friendica_config_system_dbclean: false
+friendica_config_system_dbcleanexpiredays: 365
 friendica_vhost_usempmitk: no
