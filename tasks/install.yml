@@ -9,7 +9,7 @@
   cron:
     name: "Friendica worker"
     minute: "*/10"
-    job: "(cd {{ friendica_path }}; /usr/bin/php bin/worker.php) > /dev/null"
+    job: "(cd {{ friendica_path }}; /usr/bin/php bin/worker.php) 2>&1 > /dev/null"
     user: "{{ friendica_user }}"
   when: friendica_branch == 'develop'
 
@@ -17,6 +17,6 @@
   cron:
     name: "update Friendica"
     special_time: "{{ friendica_pull_cron }}"
-    value: "cd {{ friendica_path }}; git pull"
+    value: "(cd {{ friendica_path }}; git pull) 2>&1 > /dev/null"
     user: "{{ friendica_user }}"
   when: friendica_pull_cron is defined
