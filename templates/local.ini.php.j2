@@ -45,7 +45,7 @@ sitename = "{{ friendica_config_sitename }}"
 
 ; sender_email (Email)
 ; E-mailaddress who sends out system emails
-sender_email = "{{ friendica_config_admin-nickname }}"
+sender_email = "{{ friendica_config_sender-email }}"
 
 ; Register_policy (REGISTER_OPEN|REGISTER_APPROVE|REGISTER_CLOSED)
 ; Defines who can register
@@ -60,6 +60,19 @@ register_text = "{{ friendica_config_register-text }}"
 info = "{{ friendica_config_info }}"
 
 [system]
+
+; default_timezone (Boolean)
+; Choose a legal default timezone. If you are unsure, use "UTC".
+; It can be changed later and only applies to timestamps for anonymous viewers..
+default_timezone = {{ friendica_config_system_default-timezone }}
+
+; language (String)
+; Default system language
+language = "{{ friendica_config_system_language }}"
+
+; default_theme (String)
+; default system theme
+theme = "{{ friendica_config_system_theme }}"
 
 ; allowed_link_protocols (Array)
 ; Allowed protocols in links URLs, add at your own risk. http is always allowed.
@@ -128,9 +141,8 @@ db_loglimit_index = {{ friendica_config_system_db-loglimit-index }}
 ; Number of index rows to be logged anyway (for any index). 0 to disable.
 db_loglimit_index_high = {{ friendica_config_system_db-loglimit-index-high }}
 
-; dbclean (Integer)
+; dbclean (Boolean)
 ; Turn on DBClean
-; Possible values: 0 => off; 1 => on
 dbclean = {{ friendica_config_system_dbclean }}
 
 ; dbclean_expire_conversation (Integer)
@@ -173,6 +185,10 @@ relay_server_tags = "{{ friendica_config_relay-server-tags | join(',') }}"
 ; relay_user_tags (boolean)
 ; If enabled, the tags from the saved searches will used for the 'tags' subscription in addition to the 'relay_server_tags'.
 relay_user_tags = {{ friendica_config_system_relay-user-tags }}
+
+; directory (url)
+; Location of the global directory
+directory = '{{ friendica_config_system_directory }}''
 
 ; diaspora_test (Boolean)
 ; For development only. Disables the message transfer.
@@ -282,7 +298,7 @@ max_processes_frontend = {{ friendica_config_system_max-processes-frontend }}
 
 ; maximagesize (Integer)
 ; Maximum size in bytes of an uploaded photo.
-maximagesize = {{ friendica_config_system_max-processes-frontend }}
+maximagesize = {{ friendica_config_system_maximagesize }}
 
 ; memcache_host (String)
 ; Host name of the memcache daemon.
@@ -317,6 +333,10 @@ no_smilies = {{ friendica_config_system_no-smilies }}
 ; no_view_full_size (Boolean)
 ; Don't add the link "View full size" under a resized image.
 no_view_full_size = {{ friendica_config_system_no-view-full-size }}
+
+; no-regfullname (Boolean)
+; By default allow pseudonyms
+no_regfullname = {{ friendica_config_system_no-regfullname }}
 
 ; optimize_items (Boolean)
 ; Triggers an SQL command to optimize the item table before expiring items.
