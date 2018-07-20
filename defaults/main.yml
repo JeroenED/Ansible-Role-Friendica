@@ -14,7 +14,7 @@ friendica_database_charset: utf8mb4
 friendica_config_adminemail: [ 'example@example.com' ]
 friendica_config_senderemail: 'webmaster@example.com'
 friendica_config_adminnickname: 'example'
-friendica_config_sitename: "Friendica Social Network"
+friendica_config_sitename: 'Friendica Social Network'
 friendica_config_registerpolicy: REGISTER_OPEN
 friendica_config_registertext: ''
 friendica_config_info: ''
