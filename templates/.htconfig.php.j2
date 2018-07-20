@@ -20,22 +20,22 @@ $db_data = '{{ friendica_database_data }}';
 // Set the database connection charset to full Unicode (utf8mb4).
 // Changing this value will likely corrupt the special characters.
 // You have been warned.
-$a->config['system']['db_charset'] = "utf8mb4";
+$a->config['system']['db_charset'] = '{{ friendica_database_charset }}';
 
 // email adress for the system admin
 
-$a->config['admin_email'] = '{{ friendica_config_adminemail }}';
+$a->config['admin_email'] = '{{ friendica_config_adminemail | join (",") }}';
 
 // Location of PHP command line processor
 
-$a->config['php_path'] = '/usr/bin/php';
+$a->config['php_path'] = '{{ friendica_config_phppath }}';
 
 // If you are using a subdirectory of your domain you will need to put the
 // relative path (from the root of your domain) here.
 // For instance if your URL is 'http://example.com/directory/subdirectory',
 // set path to 'directory/subdirectory'.
 
-$a->path = '';
+$a->path = '{{ friendica_config_system_urlpath }}';
 
 // Allowed protocols in link URLs; HTTP protocols always are accepted
 $a->config['system']['allowed_link_protocols'] = array("{{ friendica_config_system_allowedlinkprotocols | join('", "') }}");
@@ -57,7 +57,7 @@ $a->config['system']['language'] = '{{ friendica_config_system_language }}';
 
 // What is your site name?
 
-$a->config['sitename'] = "{{ friendica_config_sitename }}";
+$a->config['sitename'] = "{{ friendica_config_system_defaulttimezone }}";
 
 // Your choices are REGISTER_OPEN, REGISTER_APPROVE, or REGISTER_CLOSED.
 // Be certain to create your own personal account before setting
@@ -80,7 +80,7 @@ $a->config['system']['maximagesize'] = {{ friendica_config_system_maximagesize }
 // Server-to-server private message encryption (RINO) is allowed by default.
 // set to 0 to disable, 1 to enable
 
-$a->config['system']['rino_encrypt'] = {{ friendica_config_system_rino_encrypt }};
+$a->config['system']['rino_encrypt'] = {{ friendica_config_system_rinoencrypt }};
 
 // default system theme
 
