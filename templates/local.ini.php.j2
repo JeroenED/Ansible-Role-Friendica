@@ -47,11 +47,11 @@ sitename = "{{ friendica_config_sitename }}"
 ; E-mailaddress who sends out system emails
 sender_email = "{{ friendica_config_sender-email }}"
 
-; Register_policy (REGISTER_OPEN|REGISTER_APPROVE|REGISTER_CLOSED)
+; register_policy (REGISTER_OPEN|REGISTER_APPROVE|REGISTER_CLOSED)
 ; Defines who can register
 register_policy = {{ friendica_config_register-policy }}
 
-; Register_text (String)
+; register_text (String)
 ; Text that is prominently present on the registration page
 register_text = "{{ friendica_config_register-text }}"
 
@@ -186,9 +186,22 @@ relay_server_tags = "{{ friendica_config_relay-server-tags | join(',') }}"
 ; If enabled, the tags from the saved searches will used for the 'tags' subscription in addition to the 'relay_server_tags'.
 relay_user_tags = {{ friendica_config_system_relay-user-tags }}
 
+; rino_encrypt (Boolean)
+; Encryption layer between nodes.
+rino_encrypt = '{{ friendica_config_system_rino-encrypt }}'
+
+; ssl_policy (Integer)
+; Determines whether generated links should be forced to use SSL
+; Values: 0: No Policy, 1: Force, 2: Self-Signed
+ssl_policy = {{ friendica_config_system_ssl-policy }}
+
+; hide_help (Boolean)
+; Hides the menu entry for the Help pages from the navigation menu. You can still access it calling /help directly.
+hide_help = {{ friendica_config_system_hide-help }}
+
 ; directory (url)
 ; Location of the global directory
-directory = '{{ friendica_config_system_directory }}''
+directory = '{{ friendica_config_system_directory }}'
 
 ; diaspora_test (Boolean)
 ; For development only. Disables the message transfer.
@@ -300,6 +313,10 @@ max_processes_frontend = {{ friendica_config_system_max-processes-frontend }}
 ; Maximum size in bytes of an uploaded photo.
 maximagesize = {{ friendica_config_system_maximagesize }}
 
+; max_daily_registrations (Integer)
+; If registration is permitted above, this sets the maximum number of new user registrations to accept per day. If register is set to closed, this setting has no effect.
+max_daily_registrations = {{ friendica_config_system_max-daily-registrations }}
+
 ; memcache_host (String)
 ; Host name of the memcache daemon.
 memcache_host = "{{ friendica_config_system_memcache_host }}"
@@ -338,6 +355,10 @@ no_view_full_size = {{ friendica_config_system_no-view-full-size }}
 ; By default allow pseudonyms
 no_regfullname = {{ friendica_config_system_no-regfullname }}
 
+; no_openid (Boolean)
+; OpenID support for registration and logins.
+no_openid = {{ friendica_config_system_no-openid }}
+
 ; optimize_items (Boolean)
 ; Triggers an SQL command to optimize the item table before expiring items.
 optimize_items = {{ friendica_config_system_optimize-items }}
@@ -358,6 +379,10 @@ pidfile = "{{ friendica_config_system_pidfile }}"
 ; Sets the ImageMagick compression level for PNG images. Values ranges from 0 (uncompressed) to 9 (most compressed).
 png_quality = {{ friendica_config_system_pngquality }}
 
+; jpeg_quality (Integer)
+; Uploaded JPEGS will be saved at this quality setting [0-100]. Default is 100, which is full quality.
+jpeg_quality = {{ friendica_config_system_jpegquality }}
+
 ; profiler (Boolean)
 ; Enable internal timings to help optimize code. Needed for "rendertime" addon.
 profiler = {{ friendica_config_system_profiler }}
@@ -365,6 +390,26 @@ profiler = {{ friendica_config_system_profiler }}
 ; proxy_cache_time (Integer)
 ; Period in seconds after which the cache is cleared.
 proxy_cache_time = {{ friendica_config_system_proxy-cache-time }}
+
+; Proxy (Url)
+; Url of the proxy
+proxy = "{{ friendica_config_system_proxy }}"
+
+; newuser_private (Boolean)
+; Private posts by default for new users 
+newuser_private = "{{ friendica_config_system_newuser_private }}"
+
+; shortcut_icon (String)
+; Link to an icon that will be used for browsers.
+shortcut_icon = "{{ friendica_config_system_shortcut_icon }}"
+
+; touch_icon (String)
+; Link to an icon that will be used for tablets and mobiles.
+touch_icon = "{{ friendica_config_system_touch_icon }}"
+
+; proxyuser (String)
+; User for the proxy
+proxyuser = "{{ friendica_config_system_proxyuser }}"
 
 ; pushpoll_frequency (Integer)
 ; Frequency of contact poll for subhub contact using the DFRM or OStatus network.
@@ -450,9 +495,30 @@ worker_fetch_limit = {{ friendica_config_system_worker-fetch-limit }}
 ; Setting 0 would allow maximum worker queues at all times, which is not recommended.
 worker_load_exponent = {{ friendica_config_system_worker-load-exponent }}
 
+; worker_queues (Integer)
+; Maximum number of parallel workers
+worker_queues = {{ friendica_config_system_worker-queues }}
+
+; worker_fastlane (Boolean)
+; the fastlane mechanism starts an additional worker if processes with higher priority are blocked by processes of lower priority.
+worker_fastlane = {{ friendica_config_system_worker-fastlane }}
+
+; maxloadavg (Integer)
+; Maximum system load before delivery and poll processes are deferred - default 50.
+maxloadavg = {{ friendica_config_system_maxloadavg }}
+
+; maxloadavg_frontend (Integer)
+; Maximum system load before the frontend quits service - default 50.
+maxloadavg_frontend = {{ friendica_config_system_maxloadavg-frontend }}
+
+
 ; xrd_timeout (Integer)
 ; Timeout in seconds for fetching the XRD links.
 xrd_timeout = {{ friendica_config_system_xrd-timeout }}
+
+; publish_all (Boolean)
+; Force all profiles on this site to be listed in the site directory. Enabling this may violate privacy laws like the GDPR
+publish_all = {{ friendica_config_system_publish-all }}
 
 [experimental]
 

@@ -25,6 +25,8 @@ friendica_config_system_allowed-themes: [ 'quattro', 'vier', 'duepuntozero', 'sm
 friendica_config_system_theme: 'frio'
 friendica_config_system_no-regfullname: true
 friendica_config_system_block-local-dir: false
+friendica_config_system_rino-encrypt: true
+friendica_config_system_ssl-policy: 0
 friendica_config_system_directory: 'https://dir.friendica.social'
 friendica_config_system_invitation-only: false
 friendica_config_system_default-timezone: 'UTC'
@@ -79,6 +81,7 @@ friendica_config_system_max-image-length: -1
 friendica_config_system_max-processes-backend: 5
 friendica_config_system_max-processes-frontend: 20
 friendica_config_system_maximagesize: 800000
+friendica_config_system_max-daily-registrations: -1
 friendica_config_system_memcache_host: '127.0.0.1'
 friendica_config_system_memcache-port: 11211
 friendica_config_system_memcached-hosts: [ '127.0.0.1,11211' ]
@@ -87,13 +90,19 @@ friendica_config_system_no-count: false
 friendica_config_system_no-embed: false
 friendica_config_system_no-smilies: false
 friendica_config_system_no-view-full-size: false
+friendica_config_system_no-openid: true
 friendica_config_system_optimize-items: false
 friendica_config_system_paranoia: false
 friendica_config_system_permit-crawling: false
 friendica_config_system_pidfile: ''
 friendica_config_system_pngquality: 8
+friendica_config_system_jpegquality: 70
 friendica_config_system_profiler: false
+friendica_config_system_proxy: ''
 friendica_config_system_proxy-cache-time: 86400
+friendica_config_system_newuser_private: true
+friendica_config_system_shortcut_icon: 'images/friendica-256.png'
+friendica_config_system_touch_icon: 'images/friendica-256.png'
 friendica_config_system_pushpoll-frequency: 3
 friendica_config_system_queue-no-dead-check: false
 friendica_config_system_redis-host: '127.0.0.1'
@@ -112,7 +121,12 @@ friendica_config_system_worker-cooldown: 0
 friendica_config_system_worker-debug: false
 friendica_config_system_worker-fetch-limit: 1
 friendica_config_system_worker-load-exponent: 3
+friendica_config_system_worker-queues: 10
+friendica_config_system_worker-fastlane: false
+friendica_config_system_maxloadavg: 50
+friendica_config_system_maxloadavg-frontend: 50
 friendica_config_system_xrd-timeout: 20
+friendica_config_system_publish-all: false
 friendica_config_experimental_exp-themes: false
 friendica_config_theme_hide-eventlist: false
 friendica_config_jabber_debug: false
