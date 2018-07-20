@@ -10,7 +10,7 @@
 - name: Add friendica configuration (local.ini.php)
   template:
     src: "local.ini.php.j2"
-    dest: "{{ friendica_path }}/.htconfig.php"
+    dest: "{{ friendica_path }}/config/local.ini.php"
     owner: "{{ friendica_user }}"
     group: "{{ friendica_group }}"
     mode: 0644
