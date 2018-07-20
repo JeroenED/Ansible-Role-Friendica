@@ -19,7 +19,7 @@
   file:
     state: absent
     dest: "{{ friendica_path }}/.htconfig.php"
-  when: friendica_branch == 'master' 
+  when: friendica_branch == 'develop' 
 
 - name: Create apache VirtualHost configuration
   template:
