@@ -28,14 +28,14 @@ $a->config['admin_email'] = '{{ friendica_config_adminemail | join (",") }}';
 
 // Location of PHP command line processor
 
-$a->config['php_path'] = '{{ friendica_config_php-path }}';
+$a->config['php_path'] = '{{ friendica_config_phppath }}';
 
 // If you are using a subdirectory of your domain you will need to put the
 // relative path (from the root of your domain) here.
 // For instance if your URL is 'http://example.com/directory/subdirectory',
 // set path to 'directory/subdirectory'.
 
-$a->path = '{{ friendica_config_system_url-path }}';
+$a->path = '{{ friendica_config_system_urlpath }}';
 
 // Allowed protocols in link URLs; HTTP protocols always are accepted
 $a->config['system']['allowed_link_protocols'] = array("{{ friendica_config_system_allowedlinkprotocols | join('", "') }}");
@@ -57,7 +57,7 @@ $a->config['system']['language'] = '{{ friendica_config_system_language }}';
 
 // What is your site name?
 
-$a->config['sitename'] = "{{ friendica_config_system_default-timezone }}";
+$a->config['sitename'] = "{{ friendica_config_system_defaulttimezone }}";
 
 // Your choices are REGISTER_OPEN, REGISTER_APPROVE, or REGISTER_CLOSED.
 // Be certain to create your own personal account before setting
@@ -66,53 +66,53 @@ $a->config['sitename'] = "{{ friendica_config_system_default-timezone }}";
 // to the email address of an already registered person who can authorise
 // and/or approve/deny the request.
 
-$a->config['register_policy'] = {{ friendica_config_register-policy }};
-$a->config['register_text'] = '{{ friendica_config_register-text }}';
+$a->config['register_policy'] = {{ friendica_config_registerpolicy }};
+$a->config['register_text'] = '{{ friendica_config_registertext }}';
 
 // Maximum size of an imported message, 0 is unlimited
 
-$a->config['max_import_size'] = {{ friendica_config_max-import-size }};
+$a->config['max_import_size'] = {{ friendica_config_maximportsize }};
 
 // maximum size of uploaded photos
 
-$a->config['system']['maximagesize'] = {{ friendica_config_system_max-image-size }};
+$a->config['system']['maximagesize'] = {{ friendica_config_system_maximagesize }};
 
 // Server-to-server private message encryption (RINO) is allowed by default.
 // set to 0 to disable, 1 to enable
 
-$a->config['system']['rino_encrypt'] = {{ friendica_config_system_rino_encrypt }};
+$a->config['system']['rino_encrypt'] = {{ friendica_config_system_rinoencrypt }};
 
 // default system theme
 
 $a->config['system']['theme'] = '{{ friendica_config_system_theme }}';
-$a->config['system']['allowed_themes'] = "{{ friendica_config_system_allowed-themes | join(',') }}";
+$a->config['system']['allowed_themes'] = "{{ friendica_config_system_allowedthemes | join(',') }}";
 
 // By default allow pseudonyms
 
-$a->config['system']['no_regfullname'] = {{ friendica_config_system_no-regfullname }};
+$a->config['system']['no_regfullname'] = {{ friendica_config_system_noregfullname }};
 
 // relay config
-$a->config['system']['relay_server'] = '{{ friendica_config_system_relay-server }}';
-$a->config['system']['relay_subscribe'] = {{ friendica_config_system_relay-subscribe }};
-$a->config['system']['relay_scope'] = '{{ friendica_config_system_relay-scope }}';
-$a->config['system']['relay_server_tags'] = "{{ friendica_config_system_relay-server-tags | join(',') }}";
-$a->config['system']['relay_user_tags'] = {{ friendica_config_system_relay-user-tags }};
+$a->config['system']['relay_server'] = '{{ friendica_config_system_relayserver }}';
+$a->config['system']['relay_subscribe'] = {{ friendica_config_system_relaysubscribe }};
+$a->config['system']['relay_scope'] = '{{ friendica_config_system_relayscope }}';
+$a->config['system']['relay_server_tags'] = "{{ friendica_config_system_relayservertags | join(',') }}";
+$a->config['system']['relay_user_tags'] = {{ friendica_config_system_relayusertags }};
 
 // invitation only
-$a->config['system']['invitation_only'] = {{ friendica_config_system_invitation-only }};
+$a->config['system']['invitation_only'] = {{ friendica_config_system_invitationonly }};
 
 // clean database
 $a->config['system']['dbclean'] = {{ friendica_config_system_dbclean }};
-$a->config['system']['dbclean-expire-days'] = {{ friendica_config_system_dbclean-expire-days }};
+$a->config['system']['dbclean-expire-days'] = {{ friendica_config_system_dbcleanexpiredays }};
 
 //Deny public access to the local directory
-$a->config['system']['block_local_dir'] = {{ friendica_config_system_block-local-dir }};
+$a->config['system']['block_local_dir'] = {{ friendica_config_system_blocklocaldir }};
 
 // Location of the global directory
 $a->config['system']['directory'] = '{{ friendica_config_system_directory }}';
 
 // Authentication cookie lifetime, in days
-$a->config['system']['auth_cookie_lifetime'] = {{ friendica_config_system_auth-cookie-lifetime }};
+$a->config['system']['auth_cookie_lifetime'] = {{ friendica_config_system_authcookielifetime }};
 
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
 //ini_set('error_log','php.err');
