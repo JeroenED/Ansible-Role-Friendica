@@ -15,7 +15,16 @@
     group: "{{ friendica_group }}"
     mode: 0644
 
-- name: Remove .htconfig.php (Develop)
+- name: Place .htaccess (Develop)
+  copy:
+    src: "{{ friendica_path }}/.htaccess-dist"
+    dest: "{{ friendica_path }}/.htaccess"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
+    mode: 0644
+  when: friendica_branch == 'develop' 
+
+- name: Rename .htaccess-dist (Develop)
   file:
     state: absent
     dest: "{{ friendica_path }}/.htconfig.php"
