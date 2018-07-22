@@ -12,7 +12,7 @@
   Redirect permanent / https://{{ friendica_vhost_servername }}/
 {% endif %}
 {% if friendica_config_adminemail is defined %}
-  ServerAdmin {{ friendica_config_adminemail }}
+  ServerAdmin {{ friendica_config_senderemail }}
 {% endif %}
 {% if friendica_path is defined %}
   <Directory "{{ friendica_path }}">
