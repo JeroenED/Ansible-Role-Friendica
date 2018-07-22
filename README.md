@@ -29,85 +29,28 @@ Create a additional cronjob to pull latest changes of your branch.
     friendica_database_port: 3306
     friendica_database_user: root
     friendica_database_pass: letmein
+    friendica_database_data: friendica
+    friendica_database_charset: utf8mb4
 Database configuration. If host is localhost the user and database will be made.
 
-    friendica_timezone: UTC
-Choose a legal default timezone. If you are unsure, use "America/Los_Angeles".
-It can be changed later and only applies to timestamps for anonymous viewers.
+### local.ini.php configuration
 
-    friendica_config_system_language: en
-Default system language
+All configuration of the local.ini.php (develop) and .htconfig.php (master) are can set with ansible. Because these varables are way too much to explain here, I have set up here only a few more important ones.
 
-    friendica_config_sitename: "Friendica Social Network"
-What is your site name?
+All other variables can be made by adapting the pattern `friendica_config_{key}_{value w/o underscores}`. Also note that `config_config` wouldn't make sense and is just `config`.
 
-    friendica_config_registerpolicy: REGISTER_OPEN
-    friendica_config_registertext: ''
+#### Most important variables
+
+
+    friendica_config_registerpolicy: REGISTER_OPEN 
+    friendica_config_registertext: '' 
     friendica_config_adminemail: root@localhost
-Your choices are REGISTER_OPEN, REGISTER_APPROVE, or REGISTER_CLOSED.
-Be certain to create your own personal account before setting
-REGISTER_CLOSED. 'register_text' (if set) will be displayed prominently on
-the registration page. REGISTER_APPROVE requires you set 'admin_email'
-to the email address of an already registered person who can authorise
-and/or approve/deny the request.
-In order to perform system administration via the admin panel, admin_email
-must precisely match the email address of the person logged in.
+Your choices are REGISTER_OPEN, REGISTER_APPROVE, or REGISTER_CLOSED. Be certain to create your own personal account before setting REGISTER_CLOSED. 'register_text' (if set) will be displayed prominently on the registration page. REGISTER_APPROVE requires you set 'admin_email' to the email address of an already registered person who can authorise  and/or approve/deny the request. In order to perform system administration via the admin panel, admin_email must precisely match the email address of the person logged in. 
 
-    friendica_config_maximportsize: 200000
-Maximum size of an imported message, 0 is unlimited
+    friendica_config_system_theme: 'frio' 
+Default system theme 
 
-    friendica_config_system_maximagesize: 800000
-maximum size of uploaded photos
-
-    friendica_config_system_rino_encrypt: 1
-Server-to-server private message encryption (RINO) is allowed by default.
-set to 0 to disable, 1 to enable
-
-    friendica_config_system_allowed_themes: [ 'quattro', 'vier', 'duepuntozero', 'smoothly', 'frio' ]
-Allowed themes (change this from admin panel after installation)
     
-    friendica_config_system_theme: 'frio'
-Default system theme
-
-    friendica_config_system_noregfullname: true
-By default allow pseudonyms
-
-    friendica_config_system_blocklocaldir: false
-Deny public access to the local directory
-
-    friendica_config_system_directory: 'https://dir.friendica.social'
-Location of the global directory
-
-    friendica_config_system_allowedlinkprotocols': ['ftp', 'ftps', 'mailto', 'cid', 'gopher']
-Allowed protocols in link URLs; HTTP protocols always are accepted
-
-    friendica_config_system_authcookielifetime: 7
-Authentication cookie lifetime, in days
-
-    friendica_config_system_relayserver: 'https://dir.friendica.social'
-Experimental Diaspora feature. Address of the relay server where public posts should be send to. For example https://dir.friendica.social
-
-    friendica_config_system_relaysubscribe: true
-Enables the receiving of public posts from the relay. They will be included in the search and on the community page when it is set up to show all public items.
-
-    friendica_config_system_relayscope: all
-Can be "all" or "tags". "all" means that every public post should be received. "tags" means that only posts with selected tags should be received.
-
-    friendica_config_system_relayservertags: [ 'tag1', 'tag2', 'tag3' ]
-Array of tags for the "tags" subscription (see "relay_scope")
-
-    friendica_config_system_relayusertags: true
-If enabled, the tags from the saved searches will used for the "tags" subscription in addition to the "relay_server_tags".
-
-    friendica_config_system_invitationonly: false
-If set true registration is only possible after a current member of the node has send an invitation. Default is false.
-
-    friendica_config_system_dbclean: true
-Enable the automatic database cleanup process
-
-    friendica_config_system_dbcleanexpiredays: 7
-Days after which remote items will be deleted. Own items, and marked or filed items are kept.
-
 Automatic Apache Vhost creation
 ===============================
 
