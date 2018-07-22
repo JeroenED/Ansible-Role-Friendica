@@ -1,15 +1,14 @@
-Friendica
-=========
+# Friendica
+
 
 This role installs and configures friendica.
 
-Requirements
-------------
+## Requirements
 
 (none)
 
-Role Variables
---------------
+## Role Variables
+
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     friendica_path: /var/www/friendica
@@ -108,8 +107,7 @@ Enable the automatic database cleanup process
     friendica_config_system_dbcleanexpiredays: 7
 Days after which remote items will be deleted. Own items, and marked or filed items are kept.
 
-Automatic Apache Vhost creation
-===============================
+## Automatic Apache Vhost creation
 
 A virtualhost for Apache can be created by the role. The template is based on the vhost.conf template from Geerlingguy's apache role
 
@@ -130,8 +128,7 @@ Some extra parameters to set in the Vhost.
     friendica_certificatechain:
 When you have HTTPS enabled on your website, setting these parameters will create a ssl-enabled vhost and will create redirection from http to https.
 
-Dependencies
-------------
+## Dependencies
 
     - geerlingguy.apache
     - geerlingguy.php
@@ -139,8 +136,7 @@ Dependencies
     - geerlingguy.php-mysql
     - geerlingguy.git
 
-Example Playbook
-----------------
+## Example Playbook
 
     - hosts: servers
       roles:
@@ -151,8 +147,7 @@ Example Playbook
          - { role: geerlingguy.git }
          - { role: jeroened.friendica }
 
-License
--------
+## License
 
 Copyright 2018 Jeroen De Meerleer <me@jeroened.be>
 
