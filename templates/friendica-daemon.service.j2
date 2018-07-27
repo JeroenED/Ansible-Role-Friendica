@@ -1,13 +1,26 @@
+# Original by Utzer <utzer@social.yl.ms> https://forum.friendi.ca/display/e18176ef965b5af452c2382141723172
+# Adapted for ansible-role-friendica by Jeroen De Meerleer <jeroened@social.jeroened.be>
+
 [Unit]
-Description=Friendica Deamon
-AssertPathExists={{ friendica_path }}
+Description=Friendica worker daemon
+After=network.target
+After=mariadb.service
+
 
 [Service]
-Type=notify
-ExecStart={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php start
-ExecStop={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php stop
 User={{ friendica_user }}
 Group={{ friendica_group }}
+Type=forking
+ExecStart={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php start
+ExecStop={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php stop
+TimeoutSec=60
+Restart=on-failure
+RestartSec=60
+#StartLimitInterval=350
+#StartLimitBurst=10
+#providing the PID means systemd will read if the file eaxists and then try to gain control of the main process (I guess) and it will also delete the pid-file when stopping the process. 
+PIDFile={{ friendica_config_system_pidfile }}
+
 
 [Install]
 WantedBy=multi-user.target
