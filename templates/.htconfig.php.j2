@@ -46,6 +46,9 @@ $a->config['system']['allowed_link_protocols'] = array("{{ friendica_config_syst
  *  not contain any configuration for the friendica system.
  * *********************************************************************/
 
+// Worker daemon-pid file
+$pidfile = '{{ friendica_config_system_pidfile }}';
+
 // Choose a legal default timezone. If you are unsure, use "America/Los_Angeles".
 // It can be changed later and only applies to timestamps for anonymous viewers.
 
