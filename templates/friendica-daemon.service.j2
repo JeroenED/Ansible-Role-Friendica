@@ -1,0 +1,13 @@
+[Unit]
+Description=Friendica Deamon
+AssertPathExists={{ friendica_path }}
+
+[Service]
+Type=notify
+ExecStart={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php start
+ExecStop={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php stop
+User={{ friendica_user }}
+Group={{ friendica_group }}
+
+[Install]
+WantedBy=multi-user.target

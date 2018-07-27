@@ -19,3 +19,29 @@
     value: "(cd {{ friendica_path }}; git pull) 2>&1 > /dev/null"
     user: "{{ friendica_user }}"
   when: friendica_pull_cron is defined
+
+- name: Create deamon service
+  template:
+    src: "friendica.service.j2"
+    dest: "/lib/systemd/system/friendica.service"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  when: friendica_config_system_pidfile != ''
+
+- name: Create daemon service
+  template:
+    src: "friendica.service.j2"
+    dest: "/lib/systemd/system/friendica.service"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  when: friendica_config_system_pidfile != ''
+
+- name: Enable and start the friendica daemon
+  systemd:
+    state: Started
+    enabled: yes
+    daemon_reload: yes
+    name: friendica
+  when: friendica_config_system_pidfile != ''
