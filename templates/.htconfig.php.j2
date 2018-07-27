@@ -49,7 +49,7 @@ $a->config['system']['allowed_link_protocols'] = array("{{ friendica_config_syst
 // Choose a legal default timezone. If you are unsure, use "America/Los_Angeles".
 // It can be changed later and only applies to timestamps for anonymous viewers.
 
-$default_timezone = '{{ friendica_config_sitename }}';
+$default_timezone = "{{ friendica_config_system_defaulttimezone }}";
 
 // Default system language
 
@@ -57,7 +57,7 @@ $a->config['system']['language'] = '{{ friendica_config_system_language }}';
 
 // What is your site name?
 
-$a->config['sitename'] = "{{ friendica_config_system_defaulttimezone }}";
+$a->config['sitename'] = '{{ friendica_config_sitename }}';
 
 // Your choices are REGISTER_OPEN, REGISTER_APPROVE, or REGISTER_CLOSED.
 // Be certain to create your own personal account before setting

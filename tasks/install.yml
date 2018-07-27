@@ -20,19 +20,10 @@
     user: "{{ friendica_user }}"
   when: friendica_pull_cron is defined
 
-- name: Create deamon service
-  template:
-    src: "friendica.service.j2"
-    dest: "/lib/systemd/system/friendica.service"
-    owner: "root"
-    group: "root"
-    mode: 0644
-  when: friendica_config_system_pidfile != ''
-
 - name: Create daemon service
   template:
-    src: "friendica.service.j2"
-    dest: "/lib/systemd/system/friendica.service"
+    src: "friendica-daemon.service.j2"
+    dest: "/lib/systemd/system/friendica-daemon.service"
     owner: "root"
     group: "root"
     mode: 0644
@@ -40,8 +31,8 @@
 
 - name: Enable and start the friendica daemon
   systemd:
-    state: Started
+    state: started
     enabled: yes
     daemon_reload: yes
-    name: friendica
+    name: friendica-daemon
   when: friendica_config_system_pidfile != ''
