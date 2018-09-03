@@ -24,7 +24,7 @@
     mode: 0644
   when: friendica_branch == 'develop' 
 
-- name: Rename .htaccess-dist (Develop)
+- name: Delete .htconfig (Develop)
   file:
     state: absent
     dest: "{{ friendica_path }}/.htconfig.php"
