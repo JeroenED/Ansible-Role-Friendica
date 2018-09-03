@@ -17,3 +17,7 @@ bash bin/console dbstructure update
 ## Addon update
 cd addon
 git pull
+
+## finalize
+cd ${webroot}
+bash bin/console maintenance 0
