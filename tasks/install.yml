@@ -12,6 +12,11 @@
     user: "{{ friendica_user }}"
   when: friendica_config_system_pidfile == '' 
 
+- name: Upload update script
+  copy:
+    src: "{{ role_path }}/files/update.sh"
+    dest: /usr/local/bin/friendica-update
+
 - name: Create git pull cronjob
   cron:
     name: "update Friendica"
