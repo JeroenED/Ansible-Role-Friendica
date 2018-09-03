@@ -16,6 +16,7 @@
   copy:
     src: "{{ role_path }}/files/update.sh"
     dest: /usr/local/bin/friendica-update
+    mode: 0755
 
 - name: Create git pull cronjob
   cron:
