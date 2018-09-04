@@ -4,6 +4,11 @@
     path: "{{ friendica_path }}/index.php"
   register: friendica_downloaded
 
+- name: Check if friendica-addons are already downloaded
+  stat:
+    path: "{{ friendica_path }}/addon/install.txt"
+  register: friendica_addons_downloaded
+
 - name: Clone friendica from git
   command: "git clone https://github.com/friendica/friendica.git '{{ friendica_path }}'"
   when: friendica_downloaded.stat.exists == False
@@ -12,6 +17,15 @@
   command: "git checkout {{ friendica_branch }}"
   args:
     chdir: "{{ friendica_path }}"
+
+- name: Clone friendica-addons from git
+  command: "git clone https://github.com/friendica/friendica-addons.git '{{ friendica_path }}/addon'"
+  when: friendica_addons_downloaded.stat.exists == False
+
+- name: Checkout the chosen branch
+  command: "git checkout {{ friendica_branch }}"
+  args:
+    chdir: "{{ friendica_path }}/addon"
 
 - name: Change ownership of all files and folders
   file:
