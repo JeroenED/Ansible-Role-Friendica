@@ -6,7 +6,7 @@
 
 - name: Check if friendica-addons are already downloaded
   stat:
-    path: "{{ friendica_path }}/addon/install.txt"
+    path: "{{ friendica_path }}/addon/INSTALL.txt"
   register: friendica_addons_downloaded
 
 - name: Clone friendica from git
