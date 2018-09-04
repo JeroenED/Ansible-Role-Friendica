@@ -1,0 +1,16 @@
+---
+- name: Add friendica configuration
+  template:
+    src: "local.ini.php.j2"
+    dest: "{{ friendica_path }}/config/local.ini.php"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
+    mode: 0644
+
+- name: Place .htaccess
+  copy:
+    src: "{{ friendica_path }}/.htaccess-dist"
+    dest: "{{ friendica_path }}/.htaccess"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
+    mode: 0644

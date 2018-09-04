@@ -1,0 +1,8 @@
+---
+- name: Add friendica configuration
+  template:
+    src: ".htconfig.php.j2"
+    dest: "{{ friendica_path }}/.htconfig.php"
+    owner: "{{ friendica_user }}"
+    group: "{{ friendica_group }}"
+    mode: 0644
