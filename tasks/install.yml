@@ -22,7 +22,7 @@
   cron:
     name: "update Friendica"
     special_time: "{{ friendica_pull_cron }}"
-    value: "(cd {{ friendica_path }}; git pull) 2>&1 > /dev/null"
+    value: "/bin/bash /usr/local/bin/friendica-update \"{{ friendica_path }}\" 2>&1 > /dev/null"
     user: "{{ friendica_user }}"
   when: friendica_pull_cron is defined
 
