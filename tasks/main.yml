@@ -3,4 +3,5 @@
 
 - include_tasks: "download.yml"
 - include_tasks: "install.yml"
-- include_tasks: "configure.yml"
+- include_tasks: "configure-{{ friendica_branch }}.yml"
+- include_tasks: "configure-extra.yml"
