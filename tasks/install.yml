@@ -1,6 +1,6 @@
 ---
 - name: Install friendica dependencies
-  command: "/usr/bin/php bin/composer.phar install"
+  command: "/usr/bin/php bin/composer.phar install --no-dev --optimize-autoloader"
   args:
     chdir: "{{ friendica_path }}"
 
