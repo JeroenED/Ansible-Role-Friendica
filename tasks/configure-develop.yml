@@ -1,8 +1,8 @@
 ---
 - name: Add friendica configuration
   template:
-    src: "local.ini.php.j2"
-    dest: "{{ friendica_path }}/config/local.ini.php"
+    src: "local.config.php.j2"
+    dest: "{{ friendica_path }}/config/local.config.php"
     owner: "{{ friendica_user }}"
     group: "{{ friendica_group }}"
     mode: 0644
