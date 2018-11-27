@@ -48,6 +48,7 @@ friendica_config_system_directory: 'https://dir.friendica.social'
 friendica_config_system_disableemailvalidation: false
 friendica_config_system_disablepasswordexposed: false
 friendica_config_system_disableurlvalidation: false
+friendica_config_system_disablepolling: false
 friendica_config_system_dlogfile: ''
 friendica_config_system_dlogip: ''
 friendica_config_system_freecrawls: 10
