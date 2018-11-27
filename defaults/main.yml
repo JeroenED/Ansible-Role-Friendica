@@ -116,6 +116,7 @@ friendica_config_system_sessionhandler: 'database'
 friendica_config_system_shortcuticon: 'images/friendica-256.png'
 friendica_config_system_showglobalcommunityhint: false
 friendica_config_system_showglobalcommunityhint: false
+friendica_config_system_showunsupportedaddons: false
 friendica_config_system_showunsupportedthemes: false
 friendica_config_system_sslpolicy: 0
 friendica_config_system_theme: 'frio'
