@@ -34,6 +34,7 @@ friendica_config_system_dbclean: true
 friendica_config_system_dbcleanexpireconversation: 90
 friendica_config_system_dbcleanexpiredays: 365
 friendica_config_system_dbcleanexpireunclaimed: 90
+friendica_config_system_dbcleanexpirelimit: 1000
 friendica_config_system_dblog: ''
 friendica_config_system_dblogindex: ''
 friendica_config_system_dblogindexblacklist: ''
