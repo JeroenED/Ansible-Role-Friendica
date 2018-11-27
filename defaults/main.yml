@@ -15,7 +15,7 @@ friendica_config_adminemail: [ 'example@example.com' ]
 friendica_config_adminnickname: 'example'
 friendica_config_info: ''
 friendica_config_maximportsize: 200000
-friendica_config_phppath: 'php'
+friendica_config_phppath: '/usr/bin/php'
 friendica_config_registerpolicy: REGISTER_OPEN
 friendica_config_registertext: ''
 friendica_config_senderemail: 'webmaster@example.com'
