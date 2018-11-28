@@ -73,7 +73,6 @@ friendica_config_system_maxcontactqueue: 500
 friendica_config_system_maxdailyregistrations: 1
 friendica_config_system_maximagelength: 1
 friendica_config_system_maximagesize: 800000
-friendica_config_system_maximagesize: 800000
 friendica_config_system_maxloadavg: 50
 friendica_config_system_maxloadavgfrontend: 50
 friendica_config_system_maxprocessesbackend: 5
@@ -114,7 +113,6 @@ friendica_config_system_rinoencrypt: true
 friendica_config_system_sendmailparams: true
 friendica_config_system_sessionhandler: 'database'
 friendica_config_system_shortcuticon: 'images/friendica-256.png'
-friendica_config_system_showglobalcommunityhint: false
 friendica_config_system_showglobalcommunityhint: false
 friendica_config_system_showunsupportedaddons: false
 friendica_config_system_showunsupportedthemes: false
