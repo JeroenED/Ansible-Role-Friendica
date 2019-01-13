@@ -10,11 +10,11 @@ After=mariadb.service
 [Service]
 User={{ friendica_user }}
 Group={{ friendica_group }}
-Type=forking
+Type=simple
 ExecStart={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php start
 ExecStop={{ friendica_config_phppath }} {{ friendica_path }}/bin/daemon.php stop
 TimeoutSec=60
-Restart=on-failure
+Restart=always
 RestartSec=60
 #StartLimitInterval=350
 #StartLimitBurst=10
