@@ -136,4 +136,6 @@ friendica_config_experimental_expthemes: false
 friendica_config_theme_hideeventlist: false
 friendica_config_jabber_debug: false
 friendica_config_jabber_lockpath: ''
+friendica_config_debug_apinboxlog: false
+friendica_config_debug_totalapdelivery: false
 friendica_vhost_usempmitk: no
