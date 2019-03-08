@@ -14,9 +14,3 @@
     owner: "{{ friendica_user }}"
     group: "{{ friendica_group }}"
     mode: 0644
-
-- name: Update database structure
-  shell: bash bin/console dbstructure update
-  args:
-    chdir: "{{ friendica_path }}"
-

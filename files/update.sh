@@ -5,6 +5,10 @@
 ## Get variables
 webroot=${1}
 
+if [[ ${webroot} == "" ]]; then
+	webroot=${PWD}
+fi
+
 ## initialize
 cd ${webroot}
 bash bin/console maintenance 1
