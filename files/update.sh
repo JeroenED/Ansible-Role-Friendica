@@ -14,13 +14,13 @@ cd ${webroot}
 bash bin/console maintenance 1
 
 ## Core update
-git pull
+git pull --ff-only
 php bin/composer.phar install --optimize-autoloader --no-dev
 bash bin/console dbstructure update
 
 ## Addon update
 cd addon
-git pull
+git pull --ff-only
 
 ## finalize
 cd ${webroot}
