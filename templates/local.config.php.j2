@@ -42,6 +42,10 @@ return [
 		// Nickname of the main admin user, used if there are more than one admin user defined in config => admin_email.
 		'admin_nickname' => '{{ friendica_config_adminnickname }}',
 
+		// info (String)
+		// Plaintext description of this node, used in the /friendica module.
+		'info' => '{{ friendica_config_info }}',
+
 		// max_import_size (Integer)
 		// Maximum body size of DFRN and Mail messages in characters. 0 is unlimited.
 		'max_import_size' => {{ friendica_config_maximportsize }},
@@ -49,6 +53,21 @@ return [
 		// php_path (String)
 		// Location of PHP command line processor.
 		'php_path' => '{{ friendica_config_phppath }}',
+		
+		// register_policy (Constant)
+		// Your choices are OPEN, APPROVE, or CLOSED.
+		// Be certain to create your own personal account before setting CLOSED.
+		// APPROVE requires you set system.admin_email to the email address of an
+		// already registered person who can authorize and/or approve/deny the request.
+		'register_policy' => {{ friendica_config_registerpolicy }},
+
+		// register_text (String)
+		// Will be displayed prominently on the registration page.
+		'register_text' => '{{ friendica_config_registertext }}',
+
+		// sitename (String)
+		// Displayed server name.
+		'sitename' => '{{ friendica_config_sitename }}',
 	],
 	'system' => [
 		// allowed_link_protocols (Array)
@@ -127,6 +146,11 @@ return [
 		// Reduce this value when you are getting memory issues.
 		'dbclean-expire-limit' => {{ friendica_config_system_dbcleanexpirelimit }},
 
+		// default_timezone (String)
+		// Choose a default timezone. See https://secure.php.net/manual/en/timezones.php
+		// It only applies to timestamps for anonymous viewers.
+		'default_timezone' => {{ friendica_config_system_defaulttimezone }},
+
 		// diaspora_test (Boolean)
 		// For development only. Disables the message transfer.
 		'diaspora_test' => {{ friendica_config_system_diasporatest }},
@@ -204,6 +228,10 @@ return [
 		// local_tags (Boolean)
 		// If activated, all hashtags will point to the local server.
 		'local_tags' => {{ friendica_config_system_localtags }},
+
+		// logger_adapter (String)
+		// Sets the logging adapter of Friendica globally (monolog, syslog, stream)
+		'logger_config' => {{ friendica_config_system_config }},
 
 		// max_batch_queue (Integer)
 		// Maximum number of batched queue items for a single contact before subsequent messages are discarded.
