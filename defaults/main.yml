@@ -16,7 +16,7 @@ friendica_config_adminnickname: 'example'
 friendica_config_info: ''
 friendica_config_maximportsize: 200000
 friendica_config_phppath: '/usr/bin/php'
-friendica_config_registerpolicy: REGISTER_OPEN
+friendica_config_registerpolicy: \Friendica\Module\Register::OPEN
 friendica_config_registertext: ''
 friendica_config_senderemail: 'webmaster@example.com'
 friendica_config_sitename: 'Friendica Social Network'
@@ -66,6 +66,7 @@ friendica_config_system_likenocomment: false
 friendica_config_system_localblock: false
 friendica_config_system_localsearch: false
 friendica_config_system_localtags: false
+friendica_config_system_loggeradapter: 'stream'
 friendica_config_system_maxbatchqueue: 1000
 friendica_config_system_maxconnections: 0
 friendica_config_system_maxconnectionslevel: 75
