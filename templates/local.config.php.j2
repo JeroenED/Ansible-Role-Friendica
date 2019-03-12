@@ -149,7 +149,7 @@ return [
 		// default_timezone (String)
 		// Choose a default timezone. See https://secure.php.net/manual/en/timezones.php
 		// It only applies to timestamps for anonymous viewers.
-		'default_timezone' => {{ friendica_config_system_defaulttimezone }},
+		'default_timezone' => '{{ friendica_config_system_defaulttimezone }}',
 
 		// diaspora_test (Boolean)
 		// For development only. Disables the message transfer.
@@ -231,7 +231,7 @@ return [
 
 		// logger_adapter (String)
 		// Sets the logging adapter of Friendica globally (monolog, syslog, stream)
-		'logger_config' => {{ friendica_config_system_loggerconfig }},
+		'logger_config' => '{{ friendica_config_system_loggerconfig }}',
 
 		// max_batch_queue (Integer)
 		// Maximum number of batched queue items for a single contact before subsequent messages are discarded.
