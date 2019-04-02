@@ -11,17 +11,17 @@ fi
 
 ## initialize
 cd ${webroot}
-bash bin/console maintenance 1
+bash bin/console maintenance 1 || exit 1
 
 ## Core update
-git pull --ff-only
-php bin/composer.phar install --optimize-autoloader --no-dev
-bash bin/console dbstructure update
+git pull --ff-only || exit 2
+php bin/composer.phar install --optimize-autoloader --no-dev || exit 3
+bash bin/console dbstructure update || exit 1
 
 ## Addon update
 cd addon
-git pull --ff-only
+git pull --ff-only || exit 2
 
 ## finalize
 cd ${webroot}
-bash bin/console maintenance 0
+bash bin/console maintenance 0 || exit 1
